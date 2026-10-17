@@ -1,0 +1,65 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHead from "../components/PageHead.astro";
+import Gallery from "../components/Gallery.astro";
+import Lightbox from "../components/Lightbox.astro";
+import { categories } from "../data";
+const total = categories.reduce((n, c) => n + c.photos.length, 0);
+---
+
+<Base title="Portfolio" description="Exhibition stands, interiors, kiosks, awards, corporate gifts and signage delivered by Creative Vision across the GCC.">
+  <PageHead
+    eyebrow="Portfolio"
+    title="Work that leaves the show with you"
+    lead={`${total} projects across ${categories.length} categories. Every photo is a stand, a fit-out or an object we designed and built.`}
+  />
+
+  <nav class="container jump" aria-label="Categories">
+    {categories.map((c) => <a href={`#${c.slug}`}>{c.title} <small>{c.photos.length}</small></a>)}
+  </nav>
+
+  {categories.map((c) => <Gallery category={c} />)}
+
+  <section class="section cta">
+    <div class="container">
+      <h2>Ready to start your project?</h2>
+      <a class="btn" href="/contact">Get in touch</a>
+    </div>
+  </section>
+
+  <Lightbox />
+</Base>
+
+<style>
+  .jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding-block: 1.5rem;
+  }
+
+  .jump a {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .jump a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .jump small {
+    color: var(--muted);
+  }
+
+  .cta {
+    text-align: center;
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--border);
+  }
+</style>

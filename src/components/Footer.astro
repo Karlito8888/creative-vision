@@ -1,0 +1,94 @@
+---
+import { nav, site } from "../data";
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container cols">
+    <div>
+      <p class="brand">Creative Vision</p>
+      <p class="muted">{site.tagline}</p>
+      <p class="muted">{site.legalName}<br />{site.address}</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        {nav.map(({ href, label }) => <li><a href={href}>{label}</a></li>)}
+        <li><a href={site.catalog} target="_blank" rel="noopener">Catalogue (PDF)</a></li>
+      </ul>
+    </nav>
+    <address>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+      <a href={site.phoneHref}>{site.phone}</a>
+      <a href={site.whatsapp} target="_blank" rel="noopener">WhatsApp</a>
+    </address>
+  </div>
+  <div class="container legal">
+    <span>© {year} {site.name}</span>
+    <span>Built with Astro by <a href="https://charmaweb.com">CharmaWeb</a></span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-elevated);
+    padding-block: 3rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .cols {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+
+  .brand {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  address {
+    font-style: normal;
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+  }
+
+  a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--gold);
+  }
+
+  .legal {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .legal a {
+    color: var(--gold);
+  }
+</style>

@@ -1,0 +1,136 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHead from "../components/PageHead.astro";
+import Clients from "../components/Clients.astro";
+
+const scope = [
+  "Design and layout planning",
+  "Interior fit-out for showrooms",
+  "Exhibition stands and kiosks",
+  "Office and restaurant interiors",
+  "Shop fittings design and manufacturing",
+  "Visual merchandising solutions",
+  "Window display implementation",
+  "VM props and signage solutions",
+];
+
+const values = [
+  { title: "International standards", text: "We deliver to the highest international standards with a proven track record." },
+  { title: "Customer excellence", text: "We strive to exceed expectations with turnkey solutions for businesses of all sizes." },
+  { title: "Comprehensive solutions", text: "From concept to production, full-service packages for all your needs." },
+  { title: "Quality craftsmanship", text: "Our carpentry, lighting and engineering are built to the highest possible standard." },
+];
+---
+
+<Base title="About" description="Creative Vision International Trading LLC: exhibition and interior solutions with a proven track record across Dubai, Riyadh and the GCC.">
+  <PageHead
+    eyebrow="About us"
+    title="Excellence in exhibition and interior solutions"
+    lead="Creative Vision International Trading LLC is a young, dynamic company with a proven track record in delivering exceptional solutions throughout Dubai, Riyadh and the GCC."
+  />
+
+  <section class="section">
+    <div class="container two">
+      <div>
+        <h2>Who we are</h2>
+        <p>
+          Creative Vision is one of the premier exhibition companies in Dubai, Riyadh and throughout the GCC. Our
+          expertise lies in creating custom booth displays and fabrications for exhibitions, including corporate gifts
+          and other marketing paraphernalia.
+        </p>
+        <p>
+          We specialize in turnkey interior fit-out works for businesses of all sizes, offering comprehensive design and
+          project delivery services from concepts through to working drawings and authority approval drawings.
+        </p>
+      </div>
+      <div class="card scope">
+        <h2>Our scope</h2>
+        <ul>{scope.map((s) => <li>{s}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section values">
+    <div class="container">
+      <span class="eyebrow">Our values</span>
+      <h2>What every project is held to</h2>
+      <ol class="grid">
+        {values.map((v, i) => (
+          <li class="reveal">
+            <span class="n">0{i + 1}</span>
+            <h3>{v.title}</h3>
+            <p>{v.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section commit">
+    <div class="container">
+      <span class="eyebrow">Our commitment</span>
+      <h2>Building your brand through design excellence</h2>
+      <p class="lead">
+        We strive to ensure all design solutions provide functionality and, where appropriate, epitomize a client's
+        brand. Our full-service package includes a range of styles, materials and colour schemes that add a new
+        dimension to your overall corporate image.
+      </p>
+      <a class="btn" href="/contact">Let's work together</a>
+    </div>
+  </section>
+
+  <Clients />
+</Base>
+
+<style>
+  .two {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    align-items: start;
+  }
+
+  .scope {
+    padding: 2rem;
+  }
+
+  .scope ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .scope li::marker {
+    color: var(--gold);
+  }
+
+  .values {
+    background: var(--bg-elevated);
+    border-block: 1px solid var(--border);
+  }
+
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .n {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  ol p {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .commit .lead {
+    margin-bottom: 2rem;
+  }
+</style>

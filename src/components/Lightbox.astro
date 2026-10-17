@@ -1,0 +1,61 @@
+---
+// One <dialog> per page; any <a data-lightbox href> opens it. Without JS the link opens the image.
+---
+
+<dialog id="lightbox" aria-label="Enlarged photo">
+  <button type="button" autofocus aria-label="Close">×</button>
+  <img alt="" />
+</dialog>
+
+<script>
+  const box = document.getElementById("lightbox") as HTMLDialogElement;
+  const img = box.querySelector("img")!;
+  document.addEventListener("click", (e) => {
+    const link = (e.target as Element).closest<HTMLAnchorElement>("a[data-lightbox]");
+    if (link) {
+      e.preventDefault();
+      img.src = link.href;
+      img.alt = link.querySelector("img")?.alt ?? "";
+      box.showModal();
+    } else if (e.target === box || (e.target as Element).closest("#lightbox button")) {
+      box.close();
+    }
+  });
+  box.addEventListener("close", () => (img.src = ""));
+</script>
+
+<style>
+  #lightbox {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    max-width: min(96vw, 1400px);
+    max-height: 94vh;
+  }
+
+  #lightbox::backdrop {
+    background: rgb(0 0 0 / 0.85);
+    backdrop-filter: blur(4px);
+  }
+
+  img {
+    max-width: 96vw;
+    max-height: 94vh;
+    object-fit: contain;
+    border-radius: var(--radius);
+  }
+
+  button {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 0;
+    font-size: 1.6rem;
+    color: #fff;
+    background: rgb(255 255 255 / 0.15);
+    cursor: pointer;
+  }
+</style>

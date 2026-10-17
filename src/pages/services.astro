@@ -1,0 +1,119 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import PageHead from "../components/PageHead.astro";
+import { moreServices, services, site } from "../data";
+---
+
+<Base title="Services" description="Kiosks, exhibition stands, corporate gifts, interiors, awards and signage: Creative Vision's services in Dubai and the GCC.">
+  <PageHead
+    eyebrow="Services"
+    title="From concept to show floor"
+    lead="A comprehensive range of design, build and branding services, each delivered by the same team that drew it."
+  />
+
+  <section class="section">
+    <div class="container stack">
+      {services.map((s, i) => (
+        <article class={`feature reveal${i % 2 ? " flip" : ""}`}>
+          <Image src={s.image} alt="" widths={[600, 1000]} sizes="(width >= 48rem) 50vw, 90vw" loading={i ? "lazy" : "eager"} />
+          <div>
+            <h2>{s.title}</h2>
+            <p>{s.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section more">
+    <div class="container">
+      <span class="eyebrow">And more</span>
+      <h2>Additional services</h2>
+      <ul class="grid">
+        {moreServices.map((s) => (
+          <li class="card reveal">
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section catalog">
+    <div class="container card inner">
+      <div>
+        <span class="eyebrow">Catalogue</span>
+        <h2>Creative Vision International</h2>
+        <p class="lead">Explore our complete range of products and services in the PDF catalogue.</p>
+      </div>
+      <a class="btn" href={site.catalog} target="_blank" rel="noopener">Open the catalogue <small>(PDF, 5 MB)</small></a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .stack {
+    display: grid;
+    gap: clamp(3rem, 8vw, 6rem);
+  }
+
+  .feature {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  }
+
+  .feature img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  @media (width >= 48rem) {
+    .flip img {
+      order: 2;
+    }
+  }
+
+  .feature p {
+    color: var(--muted);
+  }
+
+  .more {
+    background: var(--bg-elevated);
+    border-block: 1px solid var(--border);
+  }
+
+  .more .card {
+    padding: 1.5rem;
+    background: var(--bg);
+  }
+
+  .more p {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .inner {
+    padding: clamp(1.5rem, 4vw, 3rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .inner .lead {
+    margin: 0;
+  }
+
+  .btn small {
+    font-weight: 400;
+    opacity: 0.8;
+  }
+</style>
