@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import Clients from "../components/Clients.astro";
-import { categories, services } from "../data";
+import { categories, services, site } from "../data";
 ---
 
 <Base title="Home">
@@ -32,13 +32,18 @@ import { categories, services } from "../data";
   </nav>
 
   <section class="section container intro">
-    <h1>One team, from the first drawing to the show floor.</h1>
+    <h1>{site.tagline}</h1>
     <div>
       <p class="lead">
-        Creative Vision designs, fabricates and installs exhibition stands, kiosks, showroom fit-outs and signage across
-        Dubai, Riyadh and the GCC. Awards and corporate gifts come out of the same workshop.
+        Creative Vision is one of the premier exhibition companies in Dubai, Riyadh and throughout the GCC. Our
+        expertise lies in creating custom booth displays and fabrications for exhibitions, including corporate
+        gifts and other marketing paraphernalia.
       </p>
-      <p class="lead">Tell us the show, the space and the date. We come back with a design and a quote.</p>
+      <p class="lead">
+        Design, layout planning and interior fit-out for showrooms, exhibition stands, kiosks, offices and
+        restaurants. Visual merchandising solutions, window displays and shop fittings, designed and manufactured
+        in-house.
+      </p>
       <a class="btn" href="/contact">Start a project</a>
     </div>
   </section>
