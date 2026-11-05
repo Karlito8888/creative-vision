@@ -13,12 +13,11 @@ ships as plain HTML, CSS and 50 optimised photos.
 ## Stack
 
 - Astro 7, static output, Bun, TypeScript. No UI framework, no CSS framework.
-- Inter and Playfair Display self-hosted through Astro's fonts API (Fontsource provider).
+- Barlow and Barlow Condensed self-hosted through Astro's fonts API (Fontsource provider).
 - Images: `astro:assets` generates responsive WebP at build time from `src/assets/images`.
 - Interactivity is native: `popover` for the mobile menu, `<dialog>` for the photo lightbox,
-  CSS scroll-driven animations for reveals, `@view-transition` for cross-page fades,
-  `light-dark()` for the colour scheme. Two small scripts: the lightbox and the contact form,
-  which composes a `mailto:` link.
+  `scroll-snap` for the home page filmstrip, `@view-transition` for cross-page fades. Two
+  small scripts: the lightbox and the contact form, which composes a `mailto:` link.
 
 ## Content
 

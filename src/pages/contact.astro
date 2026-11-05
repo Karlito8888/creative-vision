@@ -5,11 +5,11 @@ import { site } from "../data";
 ---
 
 <Base title="Contact" description="Contact Creative Vision in Dubai for exhibition stands, kiosks, interiors, awards and corporate gifts.">
-  <PageHead eyebrow="Contact" title="Let's build something" lead="We help grow your business with bespoke ideas. Tell us about your project." />
+  <PageHead title="Let's build something" lead="We help grow your business with bespoke ideas. Tell us about your project." />
 
   <section class="section">
     <div class="container two">
-      <form class="card" id="contact" action={`mailto:${site.email}`} method="post" enctype="text/plain">
+      <form class="panel" id="contact" action={`mailto:${site.email}`} method="post" enctype="text/plain">
         <label>Your name <input name="name" required minlength="2" autocomplete="name" /></label>
         <label>Your email <input name="email" type="email" required autocomplete="email" /></label>
         <label>Your message <textarea name="message" required minlength="10" rows="6"></textarea></label>
@@ -49,7 +49,6 @@ import { site } from "../data";
   }
 
   form {
-    padding: 2rem;
     display: grid;
     gap: 1.25rem;
   }
@@ -66,7 +65,6 @@ import { site } from "../data";
     font: inherit;
     padding: 0.75rem 0.9rem;
     border: 1px solid var(--border);
-    border-radius: 8px;
     background: var(--bg);
     color: var(--fg);
   }
@@ -74,13 +72,12 @@ import { site } from "../data";
   input:focus,
   textarea:focus {
     outline: none;
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 25%, transparent);
+    border-color: var(--fg);
   }
 
   input:user-invalid,
   textarea:user-invalid {
-    border-color: #dc2626;
+    border-color: #ff5a4f;
   }
 
   button {
@@ -109,7 +106,7 @@ import { site } from "../data";
   }
 
   address a:hover {
-    color: var(--gold);
+    text-decoration: underline;
   }
 
   address p {

@@ -6,10 +6,7 @@ const path = Astro.url.pathname;
 
 <header class="header">
   <div class="container bar">
-    <a href="/" class="brand" aria-label={`${site.name}, home`}>
-      <span class="mark" aria-hidden="true">CV</span>
-      <span class="word">Creative Vision</span>
-    </a>
+    <a href="/" class="brand">{site.name}</a>
     <button class="burger" popovertarget="menu" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -29,8 +26,7 @@ const path = Astro.url.pathname;
     position: sticky;
     top: 0;
     z-index: 50;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter: blur(12px);
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
   }
 
@@ -38,30 +34,15 @@ const path = Astro.url.pathname;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 4.5rem;
+    min-height: 4rem;
   }
 
   .brand {
-    display: flex;
-    align-items: baseline;
-    gap: 0.6rem;
-    text-decoration: none;
-    color: var(--fg);
-  }
-
-  .mark {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.9rem;
-    color: var(--gold);
-    letter-spacing: -0.06em;
-  }
-
-  .word {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
+    font-size: 1.5rem;
     text-transform: uppercase;
+    text-decoration: none;
   }
 
   .burger {
@@ -78,7 +59,6 @@ const path = Astro.url.pathname;
     width: 24px;
     height: 2px;
     background: var(--fg);
-    border-radius: 2px;
   }
 
   #menu {
@@ -116,19 +96,19 @@ const path = Astro.url.pathname;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   ul a {
     font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--fg);
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
     text-decoration: none;
   }
 
-  ul a[aria-current="page"],
-  ul a:hover {
-    color: var(--gold);
+  ul a[aria-current="page"] {
+    color: var(--muted);
   }
 
   @media (width >= 48rem) {
@@ -148,35 +128,20 @@ const path = Astro.url.pathname;
 
     ul {
       flex-direction: row;
-      gap: 2rem;
+      gap: 1.75rem;
     }
 
     ul a {
       font-family: var(--font-sans);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 0.04em;
-      text-transform: uppercase;
-      position: relative;
-      padding-block: 0.3rem;
     }
 
-    ul a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s var(--ease);
-    }
-
-    ul a[aria-current="page"]::after,
-    ul a:hover::after {
-      transform: scaleX(1);
+    ul a[aria-current="page"] {
+      color: var(--fg);
+      text-decoration: underline;
+      text-underline-offset: 0.4em;
     }
   }
 </style>

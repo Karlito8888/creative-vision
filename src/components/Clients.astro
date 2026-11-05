@@ -5,8 +5,7 @@ import { clients } from "../data";
 
 <section class="section clients" aria-labelledby="clients-title">
   <div class="container">
-    <span class="eyebrow">Clients</span>
-    <h2 id="clients-title">Our trusted partners</h2>
+    <h2 id="clients-title">Trusted by</h2>
   </div>
   <div class="track" role="list">
     {[0, 1].map((copy) => (
@@ -25,7 +24,12 @@ import { clients } from "../data";
   .clients {
     overflow: hidden;
     border-block: 1px solid var(--border);
-    background: var(--bg-elevated);
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    color: var(--muted);
+    margin: 0;
   }
 
   .track {
@@ -53,20 +57,9 @@ import { clients } from "../data";
   img {
     height: 40px;
     width: auto;
-    filter: grayscale(1);
-    opacity: 0.75;
-    transition: 0.3s var(--ease);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    img {
-      filter: grayscale(1) invert(1);
-    }
-  }
-
-  li:hover img {
-    filter: none;
-    opacity: 1;
+    filter: grayscale(1) invert(1) contrast(1.3);
+    mix-blend-mode: screen;
+    opacity: 0.8;
   }
 
   @keyframes scroll {

@@ -13,10 +13,11 @@ piece, live at `https://creative-vision.charmaweb.com`. Same mould as `watchtowe
 
 ## Stack
 
-Astro 7 static output, Bun, TypeScript, no framework. Fonts through Astro's fonts API.
-Browser-native interactivity only: `popover` menu, `<dialog>` lightbox, scroll-driven
-reveals, `@view-transition`, `light-dark()`. Two scripts in total (`Lightbox.astro`,
-`contact.astro`). Every animation is off under `prefers-reduced-motion`.
+Astro 7 static output, Bun, TypeScript, no framework. Barlow and Barlow Condensed through
+Astro's fonts API. Dark theme only, tokens in `src/styles/global.css`. Browser-native
+interactivity only: `popover` menu, `<dialog>` lightbox, `scroll-snap` filmstrip on the home
+page, `@view-transition`. Two scripts in total (`Lightbox.astro`, `contact.astro`). The
+only self-running animation is the client marquee, off under `prefers-reduced-motion`.
 
 ## Layout
 

@@ -60,14 +60,14 @@ export const categories: Category[] = [
   },
   {
     slug: "awards",
-    cover: 0,
+    cover: 7,
     title: "Awards & Trophies",
     blurb: "Custom-made awards, plaques and medals for special recognition.",
     photos: folder("awards"),
   },
   {
     slug: "gifts",
-    cover: 0,
+    cover: 2,
     title: "Corporate Gifts & Uniforms",
     blurb: "Branded merchandise, uniforms and gift sets that carry your message.",
     photos: folder("gift"),

@@ -24,7 +24,6 @@ const values = [
 
 <Base title="About" description="Creative Vision International Trading LLC: exhibition and interior solutions with a proven track record across Dubai, Riyadh and the GCC.">
   <PageHead
-    eyebrow="About us"
     title="Excellence in exhibition and interior solutions"
     lead="Creative Vision International Trading LLC is a young, dynamic company with a proven track record in delivering exceptional solutions throughout Dubai, Riyadh and the GCC."
   />
@@ -43,7 +42,7 @@ const values = [
           project delivery services from concepts through to working drawings and authority approval drawings.
         </p>
       </div>
-      <div class="card scope">
+      <div class="panel scope">
         <h2>Our scope</h2>
         <ul>{scope.map((s) => <li>{s}</li>)}</ul>
       </div>
@@ -52,23 +51,20 @@ const values = [
 
   <section class="section values">
     <div class="container">
-      <span class="eyebrow">Our values</span>
       <h2>What every project is held to</h2>
-      <ol class="grid">
-        {values.map((v, i) => (
-          <li class="reveal">
-            <span class="n">0{i + 1}</span>
+      <ul class="cells">
+        {values.map((v) => (
+          <li>
             <h3>{v.title}</h3>
             <p>{v.text}</p>
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   </section>
 
   <section class="section commit">
     <div class="container">
-      <span class="eyebrow">Our commitment</span>
       <h2>Building your brand through design excellence</h2>
       <p class="lead">
         We strive to ensure all design solutions provide functionality and, where appropriate, epitomize a client's
@@ -90,10 +86,6 @@ const values = [
     align-items: start;
   }
 
-  .scope {
-    padding: 2rem;
-  }
-
   .scope ul {
     margin: 0;
     padding-left: 1.2rem;
@@ -101,33 +93,8 @@ const values = [
     gap: 0.5rem;
   }
 
-  .scope li::marker {
-    color: var(--gold);
-  }
-
   .values {
-    background: var(--bg-elevated);
-    border-block: 1px solid var(--border);
-  }
-
-  ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .n {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    color: var(--gold);
-    line-height: 1;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
-  ol p {
-    color: var(--muted);
-    margin: 0;
+    border-top: 1px solid var(--border);
   }
 
   .commit .lead {

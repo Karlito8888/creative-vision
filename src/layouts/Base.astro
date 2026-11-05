@@ -28,11 +28,11 @@ const fullTitle = Astro.url.pathname === "/" ? `${site.name} | Exhibition & Inte
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL("/og.jpg", Astro.site)} />
-    <meta name="theme-color" content="#7a5c10" />
+    <meta name="theme-color" content="#000000" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Font cssVariable="--font-sans" preload={[{ weight: 400, style: "normal", subset: "latin" }]} />
-    <Font cssVariable="--font-display" preload={[{ weight: 600, style: "normal", subset: "latin" }]} />
+    <Font cssVariable="--font-display" preload={[{ weight: 700, style: "normal", subset: "latin" }]} />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -50,9 +50,8 @@ const fullTitle = Astro.url.pathname === "/" ? `${site.name} | Exhibition & Inte
     left: 1rem;
     top: -4rem;
     padding: 0.6rem 1rem;
-    background: var(--gold);
+    background: var(--fg);
     color: var(--bg);
-    border-radius: 0 0 var(--radius) var(--radius);
     z-index: 100;
   }
 
