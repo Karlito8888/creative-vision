@@ -106,10 +106,19 @@ export const services = [
 ];
 
 export const moreServices = [
-  { title: "Architecture & Interiors", text: "Design, layout planning and interior fit-out for showrooms, offices and restaurants." },
+  {
+    title: "Architecture & Interiors",
+    text: "Design, layout planning and interior fit-out for showrooms, offices and restaurants.",
+  },
   { title: "Awards & Trophies", text: "Custom-made awards and trophies for special recognition." },
-  { title: "Stands & Signage", text: "Visual merchandising, window displays, VM props and signage solutions." },
-  { title: "Shop Fittings", text: "Design and manufacture of shop fittings and merchandising implementation." },
+  {
+    title: "Stands & Signage",
+    text: "Visual merchandising, window displays, VM props and signage solutions.",
+  },
+  {
+    title: "Shop Fittings",
+    text: "Design and manufacture of shop fittings and merchandising implementation.",
+  },
 ];
 
 const logoFiles = import.meta.glob<ImageMetadata>("./assets/logos/*", {
@@ -138,6 +147,9 @@ const logoNames: Record<string, string> = {
 };
 
 export const clients = Object.entries(logoFiles).map(([path, img]) => {
-  const key = path.split("/").pop()!.replace(/\.\w+$/, "");
+  const key = path
+    .split("/")
+    .pop()!
+    .replace(/\.\w+$/, "");
   return { name: logoNames[key] ?? key, img };
 });

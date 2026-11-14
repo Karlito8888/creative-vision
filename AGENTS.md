@@ -13,7 +13,7 @@ piece, live at `https://creative-vision.charmaweb.com`. Same mould as `watchtowe
 
 ## Stack
 
-Astro 7 static output, Bun, TypeScript, no framework. Barlow and Barlow Condensed through
+Astro 7 static output, Vite+ (`vp`, Bun underneath), TypeScript, no framework. Barlow and Barlow Condensed through
 Astro's fonts API. Dark theme only, tokens in `src/styles/global.css`. Browser-native
 interactivity only: `popover` menu, `<dialog>` lightbox, `scroll-snap` filmstrip on the home
 page, `@view-transition`. Two scripts in total (`Lightbox.astro`, `contact.astro`). The
@@ -32,7 +32,9 @@ only self-running animation is the client marquee, off under `prefers-reduced-mo
 
 ## Gate and deploy
 
-`bun run check` (`astro check` then `astro build`) is the CI gate. A push to `main` deploys
+`vp run gate` (`astro check`, `vp check`, then `astro build`) is the CI gate. `vp check` formats with
+Oxfmt and lints with Oxlint (type-aware) from `vite.config.ts`; `.astro` files are covered by
+`astro check` only, and the pre-commit hook runs `vp staged`. A push to `main` deploys
 the Worker through `cloudflare/wrangler-action`: a push is a production write. A `| head`
 on the build output kills the image pipeline mid-way (SIGPIPE) and leaves `dist` incomplete;
 let the build finish.

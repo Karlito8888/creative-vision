@@ -29,10 +29,10 @@ by `n`. The PDF catalogue is `public/pdf/catalogs/CreativeVisionInt.pdf`.
 ## Commands
 
 ```bash
-bun install
-bun run dev       # http://localhost:4360
-bun run check     # astro check + astro build, the CI gate
-bun run preview
+vp install
+vp run dev       # http://localhost:4360
+vp run gate      # astro check + vp check + astro build, the CI gate
+vp run preview
 ```
 
 ## Deploy
