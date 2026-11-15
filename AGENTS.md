@@ -9,7 +9,7 @@ piece, live at `https://creative-vision.charmaweb.com`. Same mould as `watchtowe
 |---|---|
 | General working rules, docs ladder, git, explicit agreement | `~/.omp/agent/RULES.md` |
 | Workstation, code graphs, workflows | `~/.omp/agent/AGENTS.md` |
-| Durable project facts, deploy identities, debts | `~/.omp/agent/bank/creative-vision.md` |
+| Project identity, deploy identities and structural decisions | `~/.omp/agent/bank/creative-vision.md` |
 
 ## Stack
 
