@@ -8,11 +8,13 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
 }
 
-const { title, description = site.description } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
-const fullTitle = Astro.url.pathname === "/" ? `${site.name} | Exhibition & Interior Solutions, Dubai` : `${title} | ${site.name}`;
+const { title, description = site.description, noindex = false } = Astro.props;
+const path = Astro.url.pathname.replace(/(index)?\.html$/, ""); // build.format "file" leaves the extension in the pathname
+const canonical = new URL(path, Astro.site);
+const fullTitle = path === "/" ? `${site.name} | Exhibition & Interior Solutions, Dubai` : `${title} | ${site.name}`;
 ---
 
 <!doctype html>
@@ -22,11 +24,11 @@ const fullTitle = Astro.url.pathname === "/" ? `${site.name} | Exhibition & Inte
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {!noindex && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={new URL("/og.jpg", Astro.site)} />
     <meta name="theme-color" content="#000000" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
